@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/kitti12911/lib-database/compare/v1.0.1...v1.1.0) (2026-02-22)
+
+
+### Features
+
+* add support for mssql ([0c3d78e](https://github.com/kitti12911/lib-database/commit/0c3d78e84bbb9861c6c9fde1766ed32ee46c633a))
+
 ## [1.0.1](https://github.com/kitti12911/lib-database/compare/v1.0.0...v1.0.1) (2026-02-22)
 
 
