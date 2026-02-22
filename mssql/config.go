@@ -26,6 +26,7 @@ func (c Config) connString() string {
 	if c.Encrypt != "" {
 		query.Set("encrypt", c.Encrypt)
 	}
+
 	if c.TrustServerCertificate {
 		query.Set("TrustServerCertificate", "true")
 	}
