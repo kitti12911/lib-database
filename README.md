@@ -12,7 +12,7 @@ go get github.com/kitti12911/lib-database
 
 ```yaml
 database:
-  modsdo:
+  example_db:
     host: "localhost"
     port: "5432"
     user: "postgres"
@@ -36,7 +36,7 @@ type Config struct {
 ## connect
 
 ```go
-db, err := database.New(ctx, cfg.Database["modsdo"])
+db, err := database.New(ctx, cfg.Database["example_db"])
 if err != nil {
     log.Fatal(err)
 }
@@ -137,4 +137,3 @@ type User struct {
     UpdatedAt time.Time `db:"updated_at"`
 }
 ```
-
