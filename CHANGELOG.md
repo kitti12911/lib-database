@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/kitti12911/lib-database/compare/v1.0.0...v1.0.1) (2026-02-22)
+
+
+### Bug Fixes
+
+* use snake_case for pool config mapstructure tags ([834228c](https://github.com/kitti12911/lib-database/commit/834228cf357919cdfdeca3183a7bee2d3c006a75))
+
 ## 1.0.0 (2026-02-22)
 
 
