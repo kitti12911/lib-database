@@ -28,12 +28,15 @@ func New(ctx context.Context, cfg Config) (*DB, error) {
 	if cfg.Pool.MaxConns > 0 {
 		poolCfg.MaxConns = cfg.Pool.MaxConns
 	}
+
 	if cfg.Pool.MinConns > 0 {
 		poolCfg.MinConns = cfg.Pool.MinConns
 	}
+
 	if cfg.Pool.MaxConnLifetime > 0 {
 		poolCfg.MaxConnLifetime = cfg.Pool.MaxConnLifetime
 	}
+
 	if cfg.Pool.MaxConnIdleTime > 0 {
 		poolCfg.MaxConnIdleTime = cfg.Pool.MaxConnIdleTime
 	}
