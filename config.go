@@ -15,10 +15,10 @@ type Config struct {
 }
 
 type PoolConfig struct {
-	MaxConns        int32         `mapstructure:"maxConns"        validate:"omitempty,gte=1"`
-	MinConns        int32         `mapstructure:"minConns"        validate:"omitempty,gte=0,ltefield=MaxConns"`
-	MaxConnLifetime time.Duration `mapstructure:"maxConnLifeTime" validate:"omitempty,gt=0"`
-	MaxConnIdleTime time.Duration `mapstructure:"maxConnIdleTime" validate:"omitempty,gt=0"`
+	MaxConns        int32         `mapstructure:"max_conns"          validate:"omitempty,gte=1"`
+	MinConns        int32         `mapstructure:"min_conns"          validate:"omitempty,gte=0,ltefield=MaxConns"`
+	MaxConnLifetime time.Duration `mapstructure:"max_conn_life_time" validate:"omitempty,gt=0"`
+	MaxConnIdleTime time.Duration `mapstructure:"max_conn_idle_time" validate:"omitempty,gt=0"`
 }
 
 func (c Config) connString() string {
