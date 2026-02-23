@@ -81,16 +81,24 @@ func buildColumnMapping(columns []string, fields []fieldInfo) columnMapping {
 func collectOneRow[T any](rows *sql.Rows) (*T, error) {
 	defer rows.Close()
 
-	columns, err := rows.Columns()
-	if err != nil {
-		return nil, err
-	}
-
 	if !rows.Next() {
 		if err := rows.Err(); err != nil {
 			return nil, err
 		}
 		return nil, nil
+	}
+
+	if reflect.TypeFor[T]().Kind() != reflect.Struct {
+		var result T
+		if err := rows.Scan(&result); err != nil {
+			return nil, err
+		}
+		return &result, rows.Err()
+	}
+
+	columns, err := rows.Columns()
+	if err != nil {
+		return nil, err
 	}
 
 	fields := cachedStructFields(reflect.TypeFor[T]())
@@ -106,6 +114,21 @@ func collectOneRow[T any](rows *sql.Rows) (*T, error) {
 
 func collectRows[T any](rows *sql.Rows) ([]T, error) {
 	defer rows.Close()
+
+	if reflect.TypeFor[T]().Kind() != reflect.Struct {
+		var results []T
+		for rows.Next() {
+			var v T
+			if err := rows.Scan(&v); err != nil {
+				return nil, err
+			}
+			results = append(results, v)
+		}
+		if err := rows.Err(); err != nil {
+			return nil, err
+		}
+		return results, nil
+	}
 
 	columns, err := rows.Columns()
 	if err != nil {

@@ -3,6 +3,7 @@ package database
 import (
 	"context"
 	"errors"
+	"reflect"
 
 	"github.com/jackc/pgx/v5"
 
@@ -13,13 +14,24 @@ type Builder interface {
 	Build() (string, []any)
 }
 
+func isStruct[T any]() bool {
+	return reflect.TypeFor[T]().Kind() == reflect.Struct
+}
+
 func FindOne[T any](ctx context.Context, db *DB, sql string, args ...any) (*T, error) {
 	rows, err := db.querier(ctx).Query(ctx, sql, args...)
 	if err != nil {
 		return nil, err
 	}
 
-	result, err := pgx.CollectOneRow(rows, pgx.RowToAddrOfStructByName[T])
+	var collector pgx.RowToFunc[*T]
+	if isStruct[T]() {
+		collector = pgx.RowToAddrOfStructByName[T]
+	} else {
+		collector = pgx.RowToAddrOf[T]
+	}
+
+	result, err := pgx.CollectOneRow(rows, collector)
 	if errors.Is(err, pgx.ErrNoRows) {
 		return nil, nil
 	}
@@ -37,7 +49,14 @@ func FindAll[T any](ctx context.Context, db *DB, sql string, args ...any) ([]T, 
 		return nil, err
 	}
 
-	results, err := pgx.CollectRows(rows, pgx.RowToStructByName[T])
+	var collector pgx.RowToFunc[T]
+	if isStruct[T]() {
+		collector = pgx.RowToStructByName[T]
+	} else {
+		collector = pgx.RowTo[T]
+	}
+
+	results, err := pgx.CollectRows(rows, collector)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +100,14 @@ func FindAndCountB[T any](ctx context.Context, db *DB, b *sqlbuilder.SelectBuild
 		return nil, 0, err
 	}
 
-	results, err := pgx.CollectRows(rows, pgx.RowToStructByName[T])
+	var collector pgx.RowToFunc[T]
+	if isStruct[T]() {
+		collector = pgx.RowToStructByName[T]
+	} else {
+		collector = pgx.RowTo[T]
+	}
+
+	results, err := pgx.CollectRows(rows, collector)
 	if err != nil {
 		return nil, 0, err
 	}
