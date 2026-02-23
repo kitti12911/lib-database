@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/kitti12911/lib-database/compare/v1.1.0...v1.2.0) (2026-02-23)
+
+
+### Features
+
+* add support for single column scan ([0102b2c](https://github.com/kitti12911/lib-database/commit/0102b2c677baef6615b87a4d8e753f94cb72c471))
+
 ## [1.1.0](https://github.com/kitti12911/lib-database/compare/v1.0.1...v1.1.0) (2026-02-22)
 
 
