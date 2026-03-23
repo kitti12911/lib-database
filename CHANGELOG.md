@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/kitti12911/lib-database/compare/v1.2.0...v1.3.0) (2026-03-23)
+
+
+### Features
+
+* add support for oracle database ([efb316e](https://github.com/kitti12911/lib-database/commit/efb316e77994b326f831c1c1d42c3935d9507f19))
+
 ## [1.2.0](https://github.com/kitti12911/lib-database/compare/v1.1.0...v1.2.0) (2026-02-23)
 
 
