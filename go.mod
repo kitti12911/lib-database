@@ -3,9 +3,9 @@ module github.com/kitti12911/lib-database
 go 1.26.0
 
 require (
-	github.com/huandu/go-sqlbuilder v1.39.1
-	github.com/jackc/pgx/v5 v5.8.0
-	github.com/microsoft/go-mssqldb v1.9.6
+	github.com/huandu/go-sqlbuilder v1.40.2
+	github.com/jackc/pgx/v5 v5.9.2
+	github.com/microsoft/go-mssqldb v1.9.8
 )
 
 require (
@@ -19,7 +19,7 @@ require (
 	github.com/jackc/puddle/v2 v2.2.2 // indirect
 	github.com/shopspring/decimal v1.4.0 // indirect
 	github.com/sijms/go-ora/v2 v2.9.0
-	golang.org/x/crypto v0.45.0 // indirect
-	golang.org/x/sync v0.19.0 // indirect
-	golang.org/x/text v0.34.0 // indirect
+	golang.org/x/crypto v0.50.0 // indirect
+	golang.org/x/sync v0.20.0 // indirect
+	golang.org/x/text v0.36.0 // indirect
 )
