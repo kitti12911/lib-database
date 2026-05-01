@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/kitti12911/lib-database/compare/v1.4.0...v1.5.0) (2026-05-01)
+
+
+### Features
+
+* update dependencies ([72cae30](https://github.com/kitti12911/lib-database/commit/72cae302116c0f34b257912e955df42b13960953))
+
 ## [1.4.0](https://github.com/kitti12911/lib-database/compare/v1.3.0...v1.4.0) (2026-04-30)
 
 
