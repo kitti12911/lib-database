@@ -4,6 +4,14 @@ on:
   push:
     branches:
       - main
+    paths:
+      - ".github/workflows/release.yml"
+      - ".github/release-please*.json"
+      - "CHANGELOG.md"
+      - "Makefile"
+      - "go.mod"
+      - "go.sum"
+      - "**/*.go"
 
 permissions:
   contents: write
