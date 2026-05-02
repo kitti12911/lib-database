@@ -14,17 +14,17 @@ uses [pgx/v5](https://github.com/jackc/pgx) directly (not `database/sql`).
 
 ```yaml
 database:
-  example_db:
-    host: "localhost"
-    port: "5432"
-    user: "postgres"
-    password: "secret"
-    database: "mydb"
-    pool:
-      maxConns: 40
-      minConns: 20
-      maxConnLifeTime: "6h"
-      maxConnIdleTime: "1h"
+    example_db:
+        host: "localhost"
+        port: "5432"
+        user: "postgres"
+        password: "secret"
+        database: "mydb"
+        pool:
+            maxConns: 40
+            minConns: 20
+            maxConnLifeTime: "6h"
+            maxConnIdleTime: "1h"
 ```
 
 in your service config struct:
@@ -146,19 +146,19 @@ uses `database/sql` with [go-mssqldb](https://github.com/microsoft/go-mssqldb) v
 
 ```yaml
 database:
-  example_db:
-    host: "localhost"
-    port: "1433"
-    user: "sa"
-    password: "secret"
-    database: "mydb"
-    encrypt: "disable"
-    trust_server_certificate: true
-    pool:
-      max_open_conns: 40
-      max_idle_conns: 20
-      conn_max_lifetime: "6h"
-      conn_max_idle_time: "1h"
+    example_db:
+        host: "localhost"
+        port: "1433"
+        user: "sa"
+        password: "secret"
+        database: "mydb"
+        encrypt: "disable"
+        trust_server_certificate: true
+        pool:
+            max_open_conns: 40
+            max_idle_conns: 20
+            conn_max_lifetime: "6h"
+            conn_max_idle_time: "1h"
 ```
 
 ```go
@@ -177,44 +177,44 @@ uses `database/sql` with [go-ora](https://github.com/sijms/go-ora) via the `dbsq
 
 ```yaml
 database:
-  example_db:
-    host: "localhost"
-    port: "1521"
-    service_name: "ORCLPDB1"
-    user: "system"
-    password: "secret"
-    pool:
-      max_open_conns: 40
-      max_idle_conns: 20
-      conn_max_lifetime: "6h"
-      conn_max_idle_time: "1h"
+    example_db:
+        host: "localhost"
+        port: "1521"
+        service_name: "ORCLPDB1"
+        user: "system"
+        password: "secret"
+        pool:
+            max_open_conns: 40
+            max_idle_conns: 20
+            conn_max_lifetime: "6h"
+            conn_max_idle_time: "1h"
 ```
 
 connect using SID instead of service name:
 
 ```yaml
 database:
-  example_db:
-    host: "localhost"
-    port: "1521"
-    sid: "ORCL"
-    user: "system"
-    password: "secret"
+    example_db:
+        host: "localhost"
+        port: "1521"
+        sid: "ORCL"
+        user: "system"
+        password: "secret"
 ```
 
 ssl with oracle wallet:
 
 ```yaml
 database:
-  example_db:
-    host: "localhost"
-    port: "2484"
-    service_name: "ORCLPDB1"
-    user: "system"
-    password: "secret"
-    ssl: true
-    ssl_verify: false
-    wallet: "/path/to/wallet"
+    example_db:
+        host: "localhost"
+        port: "2484"
+        service_name: "ORCLPDB1"
+        user: "system"
+        password: "secret"
+        ssl: true
+        ssl_verify: false
+        wallet: "/path/to/wallet"
 ```
 
 ```go
