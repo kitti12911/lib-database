@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/kitti12911/lib-database/compare/v1.5.0...v1.5.1) (2026-05-03)
+
+
+### Bug Fixes
+
+* fix CGO_ENABLE -&gt; CGO_ENABLED ([a4a0b45](https://github.com/kitti12911/lib-database/commit/a4a0b452ed3a2ec7106297180e3d281ab1dc8838))
+
 ## [1.5.0](https://github.com/kitti12911/lib-database/compare/v1.4.0...v1.5.0) (2026-05-01)
 
 
